@@ -1,0 +1,148 @@
+extends publicLayout
+block content
+
+  .default-page
+  .header
+    h1(id="main-title" class="container") GSC Beacon Interface
+    
+  .div(class="main container clearfix")
+    ul.getting-started
+      li.clearfix
+        .step
+          form(action='http://limsdev06.bcgsc.ca/beacon/find_variant')
+            table.table
+              tr
+                td chromosome:
+                |                         
+                td
+                  select(name='chrom')
+                    option(name='chrom', value='1') 1
+                    |                             
+                    option(name='chrom', value='2') 2
+                    |                             
+                    option(name='chrom', value='3') 3
+                    |                             
+                    option(name='chrom', value='4') 4
+                    |                             
+                    option(name='chrom', value='5') 5
+                    |                             
+                    option(name='chrom', value='6') 6
+                    |                             
+                    option(name='chrom', value='7') 7
+                    |                             
+                    option(name='chrom', value='8') 8
+                    |                             
+                    option(name='chrom', value='9') 9
+                    |                             
+                    option(name='chrom', value='10') 10
+                    |                             
+                    option(name='chrom', value='11') 11
+                    |                             
+                    option(name='chrom', value='12') 12
+                    |                             
+                    option(name='chrom', value='13') 13
+                    |                             
+                    option(name='chrom', value='14') 14
+                    |                             
+                    option(name='chrom', value='15') 15
+                    |                             
+                    option(name='chrom', value='16') 16
+                    |                             
+                    option(name='chrom', value='17') 17
+                    |                             
+                    option(name='chrom', value='18') 18
+                    |                             
+                    option(name='chrom', value='19') 19
+                    |                             
+                    option(name='chrom', value='20') 20
+                    |                             
+                    option(name='chrom', value='21') 21
+                    |                             
+                    option(name='chrom', value='22') 22
+                    |                             
+                    option(name='chrom', value='')
+                    |                             
+                    option(name='chrom', value='X') X
+                    |                             
+                    option(name='chrom', value='Y') Y
+              |                         
+              tr
+                td
+                  | position:
+                td
+                  input#pos(name='pos', type='number')
+                  br
+              |                         
+              tr
+                td
+                  | allele:
+                td
+                  select(name='allele')
+                    option(name='allele', value='')
+                    |                             
+                    option(name='allele', value='A') A
+                    |                             
+                    option(name='allele', value='G') G
+                    |                             
+                    option(name='allele', value='C') C
+                    |                             
+                    option(name='allele', value='T') T
+                    |                             
+                    option(name='allele', value='')
+                    |                             
+                    option(name='allele', value='D') D
+                    |                             
+                    option(name='allele', value='I') I
+              |                         
+              tr
+                td
+                  | reference:
+                td
+                  input(type='radio', name='ref', value='')
+                  br
+                  |                          
+                  input(type='radio', name='ref', value='hg18')
+                  |  hg18
+                  br
+                  |                          
+                  input(type='radio', name='ref', value='hg19')
+                  |  hg19
+                  br
+            |                          
+            button.btn.btn-primary(type='submit') Find Variant
+            |  (returns JSON response object only)
+    |         
+    .links
+      h3 Links
+      ul.link-list
+        h4
+          a(target='_blank', href='/')  Home 
+        |                 
+        h4 Online Interface
+        |                     
+        a(target='_blank', href='/ui')
+          li User Interface
+        |                 
+        h4 Docs
+        |                     
+        a(target='_blank', href='/FAQs')
+          li FAQs
+        |                     
+        a(target='_blank', href='/examples')
+          li Usage Examples
+        |                     
+        a(target='_blank', href='/contactUs')
+          li Contact Us
+        |         
+        |                 
+        h4 Community
+        |                 
+        a(target='_blank', href='http://ga4gh.org/#/beacon')
+          li Beacon Project
+        |                 
+        a(target='_blank', href='http://mcupak.github.io/beacon-of-beacons/index.html')
+          li Beacon of Beacons
+        |                 
+        a(target='_blank', href='http://beacon-network.org')
+          li Beacon Network
+

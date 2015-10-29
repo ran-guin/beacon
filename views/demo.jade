@@ -1,0 +1,100 @@
+extends publicLayout
+block content
+
+  div.default-page
+    div.header
+        h1(id="main-title" class="container") GSC Beacon Demo 
+    div.main.container.clearfix
+        h2 Examples of Usage and Response
+        ul.getting-started
+            li.clearfix
+                div.step
+                    div.sprite.one
+                    h3 Get Beacon Information
+                    p
+                        a(href="/beacon")
+                          button(class='btn btn-primary') Beacon Info
+                        p &nbsp
+                        p URL syntax: 
+                          b "http://limsdev06.bcgsc.ca/beacon/beacon"
+            li.clearfix
+                div.step
+                    div(class="sprite two")
+                    h3 Example of Usage and Beacon Response 
+                    p    These examples demonstrate the output format from various requests without actually accessing the database.
+                          P
+                          i eg: 
+                            span /find_variant? chrom = 18 &
+                            span pos = 10096 &
+                            span allele = A &
+                            span ref = hg19
+                        
+                        p &nbsp;
+                        p URL syntax: 
+                            b "/find_variant?chrom=18&pos=10096&allele=A&ref=hg19"
+                        
+                        p &nbsp;
+                        a(href="/demo/test?type=true")
+                          button( type='button' class='btn btn-primary') True Response
+                        
+                        span &nbsp; 
+
+                        a( href="/demo/test?type=false")
+                          button(type='button' class='btn btn-danger') False Response
+                        i (eg different allele) 
+                        
+                        p &nbsp;
+
+                        a(href="/demo/test?")
+                          button( class='btn btn-warning') Invalid Request Response
+                        i (eg forget to provide required param)
+                        
+            li.clearfix
+                div.step
+                    div.sprite.three
+                    h3   Real Time Query Example on Production Database 
+                    p These examples run the same typical query above through the API - demonstrating the current system response in real time.
+                        P
+                          i eg:
+                            span /find_variant? 
+                            span chrom = 18 &
+                            span pos = 10096 &
+                            span allele = A &
+                            span ref = hg19
+                        p &nbsp;
+                        a(href="/find_variant?chrom=18&pos=10096&allele=A")
+                          button(class='btn btn-primary') True Response
+                        span &nbsp;
+
+                        a(href="/query?chrom=18&pos=10096&allele=C&ref=hg19")
+                          button( type='button' class='btn btn-danger') False Response
+                        i (changed allele to 'C')
+                        
+                        p &nbsp;
+                        a(href='/find_variant?chrom=1')
+                          button.btn.btn-warning Invalid Request Response
+                        i (only provide chrom)
+        .links
+            // <h3>Links</h3>
+            ul.link-list
+                h4
+                    a(target='_blank', href='/')  Home 
+                h4 Online Interface
+                    a(target='_blank', href='/ui')
+                        li Beacon Interface
+                    a(target='_blank', href='/brca/ui')
+                        li BRCA Search
+                h4 Docs
+                    a(target='_blank', href='/FAQs')
+                        li FAQs
+                    a(target='_blank', href='/examples')
+                        li Usage Examples
+                    a(target='_blank', href='/contactUs')
+                        li Contact Us
+                h4 Community
+                    a(target='_blank', href='http://ga4gh.org/#/beacon')
+                        li Beacon Project
+                    a(target='_blank', href='http://mcupak.github.io/beacon-of-beacons/index.html')
+                        li Beacon of Beacons
+                    a(target='_blank', href='http://beacon-network.org')
+                        li Beacon Network
