@@ -1,0 +1,38 @@
+extends ./../publicLayout
+block content
+    .default-page
+        .header
+            h1#main-title.container GSC BRCA Data Finder
+                navbar.navbar-right 
+                    a(href="/") 
+                        i.fa.fa-home(style='color:#066')
+        .main.container.clearfix
+          div(ng-app="myApp")
+           div(ng-controller="BrcaController")
+            form#brcaQuery
+                button.btn.btn-primary(type='button' ng-click='download()') Download
+                hr
+                input.form-control(type='string' ng-model='string' ng-model-options='{debounce : 1000}', ng-change="search()" placeholder="-- search string eg 'BRCA1' or 'chr17:41251803' --")
+            hr
+            if field
+              b CONFIG
+              table.table.table-bordered
+                tr
+                    each field,i in fields
+                        th.active #{field} 
+                each record in data
+                    tr
+                        each field,i in fields
+                            td #{record[field]}
+            hr
+
+            div(ng-if="dataSet")
+              h3 {{dataSet.length}} Records found containing '{{string}}' 
+              table.table.table-bordered.display#searchResults
+                tr.active
+                    td(ng-repeat="field in displayFields")
+                        b {{field}}
+                tr(ng-repeat="record in dataSet") 
+                    td(ng-repeat="field in displayFields")
+                        span {{record[field]}}
+              hr
