@@ -57,5 +57,8 @@ module.exports.routes = {
   'GET /examples'  : { view : 'Usage' },
   'GET /contactUs'  : { view : 'ContactUs' },
   'GET /ui'  : { view : 'UI' },
+  'GET /brca/ui'  : { view : 'brca/UI' },
+  'GET /brca/demo'  : 'BrcaController.search',
+  'GET /brca/search'  : 'BrcaController.search',
 
 };
