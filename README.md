@@ -4,9 +4,9 @@
 
 * #### clone code 
 
-```
-> git clone \<path\> \<target_directory\>
-```
+  ```
+  > git clone \<path\> \<target_directory\>
+  ```
 
 * #### setup configuration (specify host / database / user for DB connection) 
 
