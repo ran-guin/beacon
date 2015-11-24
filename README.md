@@ -3,16 +3,17 @@
 ## Quick Setup from scratch
 
 * #### clone code 
+```
 > git clone \<path\> \<target_directory\>
-
+```
 * #### setup configuration (specify host / database / user for DB connection) 
+```
 > vi config/local.js 
-
+```
 example of code to include (obviously change all values to those applicable to your environment):
  (using 3 databases, one of which (gvdb) accesses DB via Pivotal):
 
 ```
-
    models: {
        'connection' : 'brcaDB'
    },
@@ -42,12 +43,10 @@ example of code to include (obviously change all values to those applicable to y
         },
     }
 ```
-
 * #### install npm modules
 ```
 > npm install
 ```
-
 * #### load js or css files (may add lib link or replace individual asset files)
 ```
 > cd .. # go to directory where you want to place js/css/image library (normally one directory below main node project directory)
