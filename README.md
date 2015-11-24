@@ -108,6 +108,6 @@ It accesses databasei (or multiple databases) which may be mysql, postgres, mong
 
 * Customize database connection specifications (in config/local.js)
 * Adapt views as desired:
-** views are in views/ directory and are written using jade markup
-** controllers are in api/controllers/ directory and are run on the server side
+  * views are in views/ directory and are written using jade markup
+  * controllers are in api/controllers/ directory and are run on the server side
 * Adapt angular code for BRCA controller (in assets/js/private/brca/BrcaController.js) 
