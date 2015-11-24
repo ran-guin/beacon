@@ -9,14 +9,13 @@
   ```
 
 * #### setup configuration (specify host / database / user for DB connection) 
-
   ```
   > vi config/local.js 
   ```
   example of code to include (obviously change all values to those applicable to your environment):
   (using 3 databases, one of which (gvdb) accesses DB via Pivotal):
-
   ```
+module.exports = {
    models: {
        'connection' : 'brcaDB'
    },
@@ -45,6 +44,7 @@
             database: 'brca',
         },
     }
+}
   ```
 * #### install npm modules
   ```
