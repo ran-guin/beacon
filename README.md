@@ -10,17 +10,17 @@
 
 * #### setup configuration (specify host / database / user for DB connection) 
   ```
-  > vi config/local.js 
+> vi config/local.js 
   ```
   example of code to include (obviously change all values to those applicable to your environment):
   (using 3 databases, one of which (gvdb) accesses DB via Pivotal):
   ```
-module.exports = {
-   models: {
+  module.exports = {
+    models: {
        'connection' : 'brcaDB'
-   },
+    },
 
-   connections: {
+    connections: {
        'testDB': {
             adapter: 'sails-mysql',
             host: 'limsdemo.bcgsc.ca',
@@ -44,12 +44,14 @@ module.exports = {
             database: 'brca',
         },
     }
-}
+  }
   ```
+
 * #### install npm modules
   ```
-  > npm install
+> npm install
   ```
+
 * #### load js or css files (may add lib link or replace individual asset files)
   ```
   > cd .. # go to directory where you want to place js/css/image library (normally one directory below main node project directory)
@@ -102,15 +104,10 @@ It accesses databasei (or multiple databases) which may be mysql, postgres, mong
 * sails
 * supervisor
 
-a [Sails](http://sailsjs.org) application
+## Customizing Options:
 
-Building from scratch:
-
-sails new GSC_beacon
-
-/* add beacon controller */
-/* add demose */
-
-/* adjust views */
-
-/* edit connections   to specify host, database, user, password */
+* Customize database connection specifications (in config/local.js)
+* Adapt views as desired:
+** views are in views/ directory and are written using jade markup
+** controllers are in api/controllers/ directory and are run on the server side
+* Adapt angular code for BRCA controller (in assets/js/private/brca/BrcaController.js) 
