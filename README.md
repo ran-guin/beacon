@@ -10,13 +10,13 @@
 
 * #### setup configuration (specify host / database / user for DB connection) 
 
-```
-> vi config/local.js 
-```
-example of code to include (obviously change all values to those applicable to your environment):
- (using 3 databases, one of which (gvdb) accesses DB via Pivotal):
+  ```
+  > vi config/local.js 
+  ```
+  example of code to include (obviously change all values to those applicable to your environment):
+  (using 3 databases, one of which (gvdb) accesses DB via Pivotal):
 
-```
+  ```
    models: {
        'connection' : 'brcaDB'
    },
@@ -45,43 +45,42 @@ example of code to include (obviously change all values to those applicable to y
             database: 'brca',
         },
     }
-```
+  ```
 * #### install npm modules
-```
-> npm install
-```
+  ```
+  > npm install
+  ```
 * #### load js or css files (may add lib link or replace individual asset files)
-```
-> cd .. # go to directory where you want to place js/css/image library (normally one directory below main node project directory)
+  ```
+  > cd .. # go to directory where you want to place js/css/image library (normally one directory below main node project directory)
 
-> git clone git@github.com:ran-guin/3rdPartyLib.git lib
+  > git clone git@github.com:ran-guin/3rdPartyLib.git lib
 
-> cd -
-> find assets/ -xtype l  ## check for broken links ... this should return nothing
-```
+  > cd -
+  > find assets/ -xtype l  ## check for broken links ... this should return nothing
+  ```
 
 * #### run sails
-```
+  ```
 > sails lift   
 >  ... ( if asked which mode to run in, use 'alter' mode while debugging, or 'safe' mode when finished )
-```
+  ```
 
 * #### run using nodemon / forever / supervisor as desired ... 
-```
+  ```
 > nodemon app.js
-```
+  ```
 
 * #### reverse alias url if desired 
 
+  eg: add to /etc/httpd/conf/httpd.conf (if running with apache)
 
-eg: add to /etc/httpd/conf/httpd.conf (if running with apache)
+  (*ensure port (1111 in this example, but it can be anything) matches port specification in config.local.js file above*) :
 
-(*ensure port (1111 in this example, but it can be anything) matches port specification in config.local.js file above*) :
-
-```
+  ```
 ProxyPass /beacon http://limsdemo.bcgsc.ca:1111
 ProxyPassReverse /beacon http://limsdemo.bcgsc.ca:1111
-```
+  ```
 
 ### Requirements
 
