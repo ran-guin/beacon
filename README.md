@@ -3,15 +3,16 @@
 ## Quick Setup from scratch
 
 * #### clone code 
-git clone <path> <target_directory>
+> git clone \<path\> \<target_directory\>
 
 * #### setup configuration (specify host / database / user for DB connection) 
-add config/local.js 
+> vi config/local.js 
 
-example of code to include:
+example of code to include (obviously change all values to those applicable to your environment):
  (using 3 databases, one of which (gvdb) accesses DB via Pivotal):
 
 ```
+
    models: {
        'connection' : 'brcaDB'
    },
@@ -42,7 +43,33 @@ example of code to include:
     }
 ```
 
+* #### install npm modules
+> npm install
 
+* #### load js or css files (may add lib link or replace individual asset files)
+
+> cd .. # go to directory where you want to place js/css/image library (normally one directory below main node project directory)
+
+> git clone git@github.com:ran-guin/3rdPartyLib.git lib
+
+> cd -
+> find assets/ -xtype l  ## check for broken links ... this should return nothing
+
+* #### run sails
+> sails lift   
+>  ( if asked which mode to run in, use 'alter' mode while debugging, or 'safe' mode when finished )
+
+* #### run using nodemon or forever 
+
+> nodemon app.js
+
+* #### reverse alias url if desired ... (in /etc/httpd/conf/httpd.conf if running with apache)
+
+add lines (*ensure port (1111 in this example, but it can be anything) matches port specification in config.local.js file above*) :
+```
+ProxyPass /beacon http://limsdemo.bcgsc.ca:1111
+ProxyPassReverse /beacon http://limsdemo.bcgsc.ca:1111
+```
 
 ### Requirements
 
@@ -52,6 +79,17 @@ It accesses databasei (or multiple databases) which may be mysql, postgres, mong
 * nodejs
 * sails
 * DB (any standard type)
+
+(I have a number of npm modules installed globally.... some of these may be necessary if not already included)
+* bower
+* express
+* express-generator
+* forever
+* nodemon
+* npm
+* grunt
+* sails
+* supervisor
 
 a [Sails](http://sailsjs.org) application
 
