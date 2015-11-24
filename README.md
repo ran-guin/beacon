@@ -107,7 +107,20 @@ It accesses databasei (or multiple databases) which may be mysql, postgres, mong
 ## Customizing Options:
 
 * Customize database connection specifications (in config/local.js)
-* Adapt views as desired:
+* Adapt views & controller logic as desired:
   * views are in views/ directory and are written using jade markup
   * controllers are in api/controllers/ directory and are run on the server side
-* Adapt angular code for BRCA controller (in assets/js/private/brca/BrcaController.js) 
+* Adapt angular code for BRCA controller (in assets/js/private/brca/BrcaController.js)
+
+# Note:
+
+At the time of writing, the current code for the beacon project references an existing Pivotal database via the external query:
+find_variant().  This call and/or the parameters passed to this query may be easily adapted as required by editing the applicable controller
+(api/controllers/BeaconController), and the calls made from the demo view (views/demo.jade)
+
+The current code for brca database references a test database containing BRCA project data.
+This should be changed to reference an in-house database using a similar schema if possible.
+
+If the schema is changed (some adjustments are likely), then the controllers referencing this data will obviously also need to be adapted.
+(api/controllers/BrcaController, assets/js/private/brca/BrcaController.js)
+
