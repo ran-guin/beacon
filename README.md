@@ -84,7 +84,7 @@ ProxyPass /beacon http://limsdemo.bcgsc.ca:1111
 ProxyPassReverse /beacon http://limsdemo.bcgsc.ca:1111
   ```
 
-### Requirements
+## Requirements:
 
 This runs on a machine with node.js installed, and uses the sails framework.
 It accesses databasei (or multiple databases) which may be mysql, postgres, mongo or whatever other db is desired.
